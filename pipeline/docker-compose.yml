@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+    frontend:
+        build:
+            context: ..
+            dockerfile: pipeline/frontend.Dockerfile
+        environment:
+            API_SERVER_NAME: "apiserver"
+            API_SERVER_PORT: 3000
+        depends_on:
+            - apiserver
+        networks:
+            - simple-proj-nw
+        ports:
+            - "80:80"
+    apiserver:
+        build:
+            context: ..
+            dockerfile: pipeline/apiserver.Dockerfile
+        environment:
+            API_SERVER_PORT: 3000
+        networks:
+            - simple-proj-nw
+networks:
+    simple-proj-nw:

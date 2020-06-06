@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.API_SERVER_PORT || 3000;
 const env = process.env.NODE_ENV || "development";
 
 // Expose static files in development environment

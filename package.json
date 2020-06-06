@@ -48,6 +48,8 @@
     "watch:frontend": "./node_modules/.bin/webpack --env.NODE_ENV=local --config webpack.config.js --watch",
     "watch": "./node_modules/.bin/concurrently 'yarn:watch:*'",
     "build:frontend": "./node_modules/.bin/webpack --env.NODE_ENV=production --config webpack.config.js",
-    "build": "./node_modules/.bin/concurrently 'yarn:build:*'"
+    "build": "./node_modules/.bin/concurrently 'yarn:build:*'",
+    "docker:build": "docker-compose --file ./pipeline/docker-compose.yml build",
+    "docker:up": "docker-compose --file ./pipeline/docker-compose.yml up"
   }
 }
